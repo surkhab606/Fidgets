@@ -11,6 +11,7 @@ public class GettingStarted {
         DigitalOutput redLED = new DigitalOutput();
         DigitalInput greenButton = new DigitalInput();
         DigitalOutput greenLED = new DigitalOutput();
+        int ButtonCount = 0;
 
         //Address | Address your four objects which lets your program know where to find them.
         redButton.setHubPort(0);
@@ -29,22 +30,32 @@ public class GettingStarted {
         greenLED.open(1000);
 
         //Use your Phidgets | This code will turn on the LED when the matching button is pressed and turns off the LED when the matching button is released. The sleep function slows down the loop so the button state is only checked every 150ms.
-        while(true){
+        while(true) 
+        {
         	
         	//Modified code so that LED remains on until the button is pressed. When the button is pressed the LED will turn off. 
         	//Modified code so that the greenButton code controls the redLED and vice versa.
             if(greenButton.getState())
             {
+            	ButtonCount +=1;
                 redLED.setState(false);
+                System.out.println("You have clicked the button  " + ButtonCount + " times.");
+           
             } else 
             	
             {
                 redLED.setState(true);
             }
 
-            if(redButton.getState()){
+            if(redButton.getState())
+            {
+            	ButtonCount +=1;
                 greenLED.setState(false);
-            } else {
+                System.out.println("You have clicked the button  " + ButtonCount + " times.");
+                
+            } else
+            	
+            {
                 greenLED.setState(true);
             }
 
