@@ -1,8 +1,10 @@
-
+//Add Phidgets Library | You added a file called phidget22 when configuring your project. Import gives you access to the Phidgets library code inside that file. 
 import com.phidget22.*;
+
 
 public class TugofWar 
 {
+    //Handle Exceptions | Exceptions will happen in your code from time to time. These are caused by unexpected things happening. Make sure you’ve added "throws Exception" to your main method.
 	public static void main(String[] args) throws Exception
 	{
 		
@@ -29,35 +31,42 @@ public class TugofWar
         greenLED.open(1000);
 		
         
+        //Variables for players, point counters and button state 
         boolean buttonState = false;
-        boolean redPlayer = false;
-        boolean greenPlayer = false;
+        boolean redButtonPlayer = false;
+        boolean greenButtonPlayer = false;
         int greenCounter = 0;
         int redCounter = 0;
         
-        
+        //While the buttons have been pressed less than 10 times, run this loop
         while(greenCounter < 10 && redCounter < 10)
-	{
+        {
         	
+        	//If the green button is pressed...
         	if(greenButton.getState() && !buttonState)
         	{
+        		//...Add one point to green player
         		greenCounter +=1;
         		greenLED.setState(true);
         		
         	}
         	
+        	//...If the button is not pressed then do not add any points and set LED off 
         	else if (!greenButton.getState()) 
         	{
         		greenLED.setState(false);
         	}
         	
+        	//If the red button is pressed...
         	if(redButton.getState() && !buttonState)
         	{
+        		//...Add one point to red player 
         		redCounter +=1;
         		redLED.setState(true);
   
         	}
         	
+        	//...If the button is not pressed then do not add any points and turn LED off 
         	else if (!redButton.getState()) 
         	{
         		redLED.setState(false);
@@ -65,14 +74,12 @@ public class TugofWar
         	
         	
         	
-            greenPlayer = greenButton.getState();
-            redPlayer = redButton.getState();
+            greenButtonPlayer = greenButton.getState();
+            redButtonPlayer = redButton.getState();
             Thread.sleep(150);
 	} 
         
-        //Flash all lights
-        
-            
+        		 //Flashes both LED lights once 
         		 redLED.setState(false);
         		 greenLED.setState(false);
         		 Thread.sleep(100);
@@ -85,10 +92,9 @@ public class TugofWar
             	 
             	 
                	 
-        //Display the winner
-         
-            	 
-            
+            //Flash the winner's LED 5 times
+             
+            //If red wins
             if (redCounter == 10) 
             {
             	
@@ -102,9 +108,7 @@ public class TugofWar
             	}
             }
             
-            
-            
-            
+            //If green wins
             else if (greenCounter == 10) 
             {
             	while (greenCounter > 5) 

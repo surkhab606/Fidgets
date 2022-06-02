@@ -2,15 +2,19 @@
 //Add Phidgets Library | You added a file called phidget22 when configuring your project. Import gives you access to the Phidgets library code inside that file. 
 import com.phidget22.*;
 
-public class GettingStarted {	
+public class GettingStarted 
+{	
     //Handle Exceptions | Exceptions will happen in your code from time to time. These are caused by unexpected things happening. Make sure you’ve added "throws Exception" to your main method.
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception 
+    {
 
         //Create | Create objects for your buttons and LEDs.
         DigitalInput redButton = new DigitalInput();
         DigitalOutput redLED = new DigitalOutput();
         DigitalInput greenButton = new DigitalInput();
         DigitalOutput greenLED = new DigitalOutput();
+        
+        //ButtonCount variable
         int ButtonCount = 0;
 
         //Address | Address your four objects which lets your program know where to find them.
