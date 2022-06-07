@@ -34,7 +34,7 @@ public class PhidgetScale
         {
 
             //Calculate Weight (kg)
-            double weight = 21315 * (scale.getVoltageRatio() - offsetValue);
+            double weight = 23556 * (scale.getVoltageRatio() - offsetValue);
             //Display Weight
             System.out.println(String.format("%.3f kg", weight));      
             
