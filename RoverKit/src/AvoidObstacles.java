@@ -24,7 +24,9 @@ public class AvoidObstacles
         rightMotors.open(5000);
         sonar.open(5000);
         sonar.setDataInterval(100);
-
+        int count = 0;
+        
+        
         while (true) 
         {
 
@@ -35,7 +37,8 @@ public class AvoidObstacles
                 //Object detected! Stop motors
                 leftMotors.setTargetVelocity(0);
                 rightMotors.setTargetVelocity(0);
-            } else 
+            } 
+            else 
             {
                 //Move forward slowly (25% max speed)
                 leftMotors.setTargetVelocity(0.25);

@@ -28,11 +28,11 @@ public class ButtonEvents
           {
         	  if (e.getState() == true) 
         	  {
-        		  System.out.println("Pressed");
+        		  System.out.println("Red button Pressed");
         	  }
         	  else 
         	  {
-        		  System.out.println("Not pressed");
+        		  System.out.println("Red button not pressed");
         	  }
           }
       });
@@ -46,11 +46,11 @@ public class ButtonEvents
           {
         	  if (e.getState() == true) 
         	  {
-        		  System.out.println("Pressed");
+        		  System.out.println("Green button pressed");
         	  }
         	  else 
         	  {
-        		  System.out.println("Not pressed");
+        		  System.out.println("Green button not pressed");
         	  }
           }
       });

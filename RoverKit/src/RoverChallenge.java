@@ -23,14 +23,17 @@ public class RoverChallenge
         rightMotors.open(5000);
         sonar.open(5000);
         sonar.setDataInterval(100);
+        int turnCount = 0;
         
 
         while (true) 
         {
 
             System.out.println("Distance: " + sonar.getDistance() + " mm");
+            turnCount ++;
             
-            if (sonar.getDistance() < 200) 
+            if (sonar.getDistance() < 500) 
+            
             {
                 //Object detected! Stop motors
                 leftMotors.setTargetVelocity(0);
@@ -51,7 +54,7 @@ public class RoverChallenge
     	        rightMotors.setTargetVelocity(0);
     	        
     	        //Sleep for one second 
-    	        Thread.sleep(1000);
+    	        Thread.sleep(800);
     	        
     	        //Move forward
     	        leftMotors.setTargetVelocity(1);
@@ -60,27 +63,35 @@ public class RoverChallenge
     	        //Sleep for one second 
     	        Thread.sleep(1000);
     	        
-            }
+            } 
             
             else
-            {
-            	leftMotors.setTargetVelocity(0.8);
-            	rightMotors.setTargetVelocity(0.8);
             	
+            {
+            	if (turnCount < 10)
+            	{
+            		leftMotors.setTargetVelocity(0.8);
+                	rightMotors.setTargetVelocity(0.8);
+            	}
+         
+            	
+            
+            
+            else 
+            {
+            	turnCount = 0;
             }
             
             
     	        
-    	        
-
-      
-
             //Wait for 100 milliseconds 
             Thread.sleep(100);
 		
 		
+            }
         }
 	}
 }
+
 
 	
